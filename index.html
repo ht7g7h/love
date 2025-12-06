@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>I Love You Floating</title>
+<style>
+body {
+  margin: 0;
+  background: rgb(23, 23, 23);
+  overflow: hidden;
+  font-family: Arial;
+}
+.text {
+  position: absolute;
+  color: rgb(17, 73, 88);
+  text-shadow: 0 0 5px rgb(179, 14, 143);
+  animation: floatUp 6ms linear infinite;
+}
+@keyframes floatUp {
+  0% { top: 110vh; opacity: 0; }
+  20% { opacity: 1; }
+  100% { top: -20vh; opacity: 0; }
+}
+</style>
+</head>
+<body>
+
+<script>
+// Create floating texts
+for (let i = 1; i < 200; i++) {
+  let t = document.createElement("div");
+  t.className = "text";
+  t.innerText = "I love you";
+  t.style.left = Math.random() * 90 + "vw";
+  t.style.fontSize = (1+ Math.random() * 30) + "px";
+  t.style.animationDuration = (+ Math.random() * 6) + "s";
+  document.body.appendChild(t);
+}
+</script>
+
+</body>
+</html>
