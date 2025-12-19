@@ -2,41 +2,71 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>I Love You Floating</title>
+<title>Floating Text</title>
+
 <style>
 body {
   margin: 0;
-  background: rgb(23, 23, 23);
+  height: 100vh;
   overflow: hidden;
   font-family: Arial;
+
+  /* Soft blue & pink background */
+  background: linear-gradient(135deg, #cfe9ff, #ffd6e8);
 }
+
+/* Floating text */
 .text {
   position: absolute;
-  color: rgb(17, 73, 88);
-  text-shadow: 0 0 5px rgb(179, 14, 143);
-  animation: floatUp 6ms linear infinite;
+  color: #1e5fd8; /* blue text */
+  text-shadow: 0 0 8px rgba(30, 95, 216, 0.4);
+  animation-name: floatUp;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
 }
+
 @keyframes floatUp {
-  0% { top: 110vh; opacity: 0; }
-  20% { opacity: 1; }
-  100% { top: -20vh; opacity: 0; }
+  0% {
+    top: 110vh;
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    top: -20vh;
+    opacity: 0;
+  }
+}
+
+/* Responsive example (kept safe) */
+@media (max-width: 768px) {
+  .text {
+    font-size: 14px;
+  }
 }
 </style>
 </head>
+
 <body>
 
 <script>
-// Create floating texts
-for (let i = 1; i < 200; i++) {
+// Create floating texts (SLOW SPEED)
+for (let i = 0; i < 180; i++) {
   let t = document.createElement("div");
   t.className = "text";
-  t.innerText = "I love you";
+  t.innerText = "will you be mine 💙";
+
   t.style.left = Math.random() * 90 + "vw";
-  t.style.fontSize = (1+ Math.random() * 30) + "px";
-  t.style.animationDuration = (+ Math.random() * 6) + "s";
+  t.style.fontSize = (12 + Math.random() * 22) + "px";
+
+  // Slower animation (20s – 40s)
+  t.style.animationDuration = (20 + Math.random() * 20) + "s";
+
   document.body.appendChild(t);
 }
 </script>
 
 </body>
 </html>
+
